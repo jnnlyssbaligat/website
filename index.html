@@ -1,0 +1,2036 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthHub — Safe Sex Info & Community</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fdfbfb 0%, #f3e5f5 100%);
+      min-height: 100vh;
+      color: #555;
+      display: flex;
+      flex-direction: column; 
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(225, 190, 231, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ab47bc; 
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #666;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ab47bc; 
+      transform: translateY(-2px);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      flex: 1; 
+      width: 100%;
+    }
+
+    /* SECTIONS */
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #f48fb1 0%, #ce93d8 100%);
+      color: white;
+      padding: 60px 20px;
+      border-radius: 24px;
+      text-align: center;
+      margin-bottom: 40px;
+      box-shadow: 0 15px 40px rgba(244, 143, 177, 0.3); 
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 500;
+    }
+
+    /* MISSION & CONTACT SECTION */
+    .mission-contact-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    /* Left Side: Mission */
+    .mission-box {
+      flex: 1; 
+      background: white;
+      padding: 2.5rem;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(225, 190, 231, 0.2); 
+      min-width: 300px;
+      border: 1px solid #f3e5f5;
+    }
+
+    .mission-box h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ab47bc;
+    }
+
+    .mission-box p {
+      line-height: 1.6;
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    /* Right Side: Contact Area */
+    .contact-container {
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      min-width: 300px;
+    }
+
+    /* Individual Contact Cards */
+    .contact-card-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 5px 20px rgba(225, 190, 231, 0.15); 
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 1px solid #fce4ec; 
+    }
+
+    .contact-card-item:hover {
+      transform: translateY(-5px);
+      border-color: #f8bbd0;
+    }
+
+    .contact-icon {
+      background: linear-gradient(135deg, #f48fb1, #ce93d8);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(244, 143, 177, 0.3);
+    }
+
+    .contact-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+      color: #4a4a4a;
+    }
+
+    .contact-info span {
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    /* FOOTER */
+    footer {
+      width: 100%;           
+      background: #4a235a;    
+      color: #f3e5f5;   
+      padding: 3rem 1rem;  
+      text-align: center;
+      margin-top: 5rem;    
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    footer p {
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    footer i {
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    footer i:hover {
+      color: #f06292; 
+      transform: scale(1.2);
+    }
+
+    /* INFO CARDS */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px; 
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid #f3e5f5; 
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(225, 190, 231, 0.4);
+      border-color: #e1bee7;
+    }
+
+    .card h3 {
+      color: #ab47bc;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 1.3rem;
+    }
+
+    .card h3 i {
+      color: #f06292; 
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    /* MODAL STYLES */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(74, 35, 90, 0.6); 
+      backdrop-filter: blur(5px); 
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal {
+      background: white;
+      border-radius: 24px; 
+      padding: 0;
+      max-width: 600px;
+      width: 90%;
+      max-height: 85vh;
+      overflow: hidden; 
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #f3e5f5, #ffffff);
+      padding: 20px 30px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      color: #ab47bc; 
+      margin: 0;
+      font-size: 1.5rem;
+      flex: 1;
+    }
+
+    .modal-header button {
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .modal-header button:hover {
+      color: #f06292; 
+    }
+
+    .modal-content {
+      padding: 30px;
+      overflow-y: auto;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .modal-content h3 {
+      color: #ab47bc; 
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .modal-content p {
+      margin-bottom: 12px;
+    }
+
+    .modal-content ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .modal-content li {
+      margin-bottom: 8px;
+    }
+
+    /* FORUM STYLES */
+    .forum {
+      background: white;
+      border-radius: 24px; 
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(225, 190, 231, 0.2);
+    }
+
+    /* Top Post */
+    .top-post {
+      background: linear-gradient(90deg, #fce4ec, #f3e5f5); 
+      border: 1px solid #f8bbd0;
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      display: none; 
+    }
+
+    .top-post .title {
+      font-weight: 700;
+      color: #ab47bc; 
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .top-post .top-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .top-post .top-card .tp-content {
+      color: #555;
+      flex: 1;
+      margin-right: 12px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+
+    .top-post .top-card .tp-meta {
+      text-align: right;
+      color: #888;
+      font-size: 13px;
+    }
+
+    .forum h2 {
+      color: #ab47bc; 
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 1.8rem;
+    }
+
+    .forum-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #f3eff5;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    input[type="text"],
+    textarea {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px; 
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.3s;
+      background: #fdfbfb;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #ab47bc; 
+      background: white;
+      box-shadow: 0 4px 12px rgba(171, 71, 188, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* BUTTONS */
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 50px; 
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f48fb1 0%, #ce93d8 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(244, 143, 177, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(244, 143, 177, 0.6);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-danger {
+      background: #ef5350; 
+      color: white;
+      box-shadow: 0 4px 10px rgba(239, 83, 80, 0.3);
+    }
+
+    .btn-danger:hover {
+      background: #e53935;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 83, 80, 0.4);
+    }
+
+    .btn-danger:active {
+      transform: translateY(0);
+    }
+
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+
+    /*POSTS (Forum) */
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .post {
+      background: white; 
+      padding: 20px;
+      border-radius: 18px; 
+      border-left: 4px solid #ab47bc; 
+      transition: all 0.3s ease;
+      animation: slideIn 0.3s ease-out;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    }
+
+    .post:hover {
+      box-shadow: 0 10px 25px rgba(225, 190, 231, 0.2); 
+      transform: translateX(4px);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .post-author {
+      font-weight: 700;
+      color: #ab47bc; 
+    }
+
+    .post-time {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .post-content {
+      color: #555;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-bottom: 15px;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .post-action-btn {
+      background: #fdfbfb;
+      border: 1px solid #eee;
+      padding: 8px 14px;
+      border-radius: 50px; 
+      cursor: pointer;
+      color: #ab47bc;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+
+    .post-action-btn:hover {
+      background: #ab47bc;
+      color: white;
+      border-color: #ab47bc;
+    }
+
+    /* CHAT PANEL */
+    .chat-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 90px;
+      width: 360px;
+      max-height: 70vh;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9999;
+      border: 1px solid #f3eff5;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideInChat {
+      from { transform: translateY(400px) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .chat-panel.hidden {
+      transform: translateY(400px) scale(0.9);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #f48fb1, #ce93d8);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .chat-header .title {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .chat-body {
+      flex: 1;
+      overflow: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #fdfbfb;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      line-height: 1.4;
+      font-size: 14px;
+      animation: messageAppear 0.3s ease-out;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    @keyframes messageAppear {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .message.bot {
+      background: white;
+      color: #555;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      border: 1px solid #eee;
+    }
+
+    .message.user {
+      background: #ab47bc;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 12px rgba(171, 71, 188, 0.2);
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .quick-replies button {
+      background: white;
+      border: 1px solid #f3e5f5;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #ab47bc;
+      font-size: 13px;
+      transition: all 0.3s;
+      text-align: left;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .quick-replies button:hover {
+      background: #f3e5f5;
+      border-color: #e1bee7;
+      transform: translateX(2px);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+      padding: 15px;
+      border-top: 1px solid #eee;
+      background: white;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #eee;
+      border-radius: 25px; 
+      font-size: 14px;
+      background: #fdfbfb;
+    }
+
+    .chat-input input:focus {
+      outline: none;
+      border-color: #ab47bc;
+      background: white;
+    }
+
+    .chat-input .send-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #f48fb1, #ce93d8);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 10px rgba(244, 143, 177, 0.3);
+    }
+
+    .chat-input .send-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* CHAT BUBBLE (The Floating Button) */
+    .chat-bubble {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 60px; 
+      height: 60px;
+      background: linear-gradient(135deg, #f48fb1, #ce93d8);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(244, 143, 177, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+      transition: all 0.3s ease;
+    }
+
+    .chat-bubble:hover {
+      transform: scale(1.15) rotate(10deg);
+      box-shadow: 0 8px 25px rgba(244, 143, 177, 0.6);
+    }
+
+    .chat-bubble:active {
+      transform: scale(0.95);
+    }
+
+    /* ASSESSMENT TREE STYLES */
+    
+    /* 1. Selector Screen */
+    .hero-assessment {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero-assessment h2 {
+      color: #ab47bc;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .hero-assessment i { color: #f06292; }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .scenario-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(225, 190, 231, 0.2);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .scenario-card:hover {
+      transform: translateY(-10px);
+      border-color: #f06292;
+      box-shadow: 0 15px 40px rgba(240, 98, 146, 0.3);
+    }
+
+    .icon-wrapper {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+      color: #ab47bc;
+    }
+
+    /* 2. Tree/Question Container */
+    .tree-container {
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .progress-wrapper {
+      background: #f3e5f5;
+      height: 8px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #f06292, #ab47bc);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .question-card {
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 15px 50px rgba(225, 190, 231, 0.3);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .ribbon-header {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    #tree-topic-badge {
+      background: #f3e5f5;
+      color: #ab47bc;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .question-card h2 {
+      margin-top: 30px;
+      margin-bottom: 40px;
+      font-size: 1.8rem;
+      color: #4a235a;
+      line-height: 1.4;
+    }
+
+    .tree-options {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .btn-tree {
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-tree.yes {
+      background: linear-gradient(135deg, #a5d6a7, #66bb6a);
+      color: white;
+      box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
+    }
+    .btn-tree.yes:hover { transform: scale(1.05); }
+
+    .btn-tree.no {
+      background: linear-gradient(135deg, #ef9a9a, #ef5350);
+      color: white;
+      box-shadow: 0 5px 15px rgba(239, 83, 80, 0.3);
+    }
+    .btn-tree.no:hover { transform: scale(1.05); }
+
+    .btn-back {
+      background: transparent;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    .btn-back:hover { color: #ab47bc; }
+
+    /* 3. Result View Styling */
+    .tree-result {
+      max-width: 550px;
+      margin: 0 auto;
+      text-align: center;
+      background: white;
+      padding: 50px; 
+      border-radius: 32px;
+      box-shadow: 0 20px 60px rgba(225, 190, 231, 0.4); 
+      animation: slideUp 0.5s ease;
+      border: 1px solid #f3eff5;
+      position: relative;
+    }
+
+    .result-icon-wrapper {
+      font-size: 5rem;
+      color: #ab47bc;
+      margin-bottom: 30px; 
+      animation: bounce 1s infinite alternate;
+      filter: drop-shadow(0 10px 15px rgba(225, 190, 231, 0.5));
+    }
+
+    #result-title {
+      font-size: 2rem;
+      color: #4a235a;
+      margin-bottom: 20px; 
+      font-weight: 700;
+    }
+
+    .result-body {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.8;
+      background: #fdfbfb; 
+      padding: 30px; 
+      border-radius: 24px;
+      border: 2px solid #f3eff5;
+      margin-bottom: 40px; 
+    }
+
+    .result-actions {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* BUTTONS STYLE */
+    .result-actions .btn-primary {
+      background: linear-gradient(135deg, #f48fb1 0%, #ce93d8 100%);
+      color: white;
+      border: none;
+      padding: 18px 50px; 
+      border-radius: 50px; 
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(244, 143, 177, 0.5); 
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .result-actions .btn-primary:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(244, 143, 177, 0.7);
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+    }
+
+    .empty-state i {
+      font-size: 48px;
+      color: #eee;
+      margin-bottom: 16px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 10px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .chat-panel {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-heart"></i>
+        <span>HealthHub</span>
+      </div>
+      <ul class="nav-links">
+        <li><a onclick="showSection('home')">Home</a></li>
+        <li><a onclick="showSection('info')">Learn</a></li>
+        <li><a onclick="showSection('assessment')">Self-Assessment</a></li>
+        <li><a onclick="showSection('forum')">Forum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Home Section -->
+    <section id="home" class="active">
+      <div class="hero">
+        <div style="font-size: 60px; margin-bottom: 15px; opacity: 0.9;">
+          <i class="fas fa-heart"></i>
+        </div>
+
+        <h1>HealthHub</h1>
+        <p>
+          Welcome to your trusted resource for sexual health education. 
+          We're here to provide you with accurate, compassionate, and comprehensive information about safe sex practices, STI prevention, and sexual wellness. 
+          Your health and well-being matter.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="card">
+          <h3><i class="fas fa-book"></i> Learn Safe Practices</h3>
+          <p>Comprehensive guides on safe sex practices, hygiene, and myth-busting facts.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-comments"></i> Ask Question</h3>
+          <p>Get instant answers through our chatbot or connect with the community in our forum.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-check-circle"></i> Assess Yourself</h3>
+          <p>Use our self-assessment tool to track your health and wellness journey.</p>
+        </div>
+      </div>
+      <section class="mission-contact-section">
+    
+    <div class="mission-box">
+      <h2>Our Mission</h2>
+      <p>
+        At HealthHub, we believe that sexual health is a fundamental human right. 
+        Our mission is to create a safe, judgment-free space where everyone can access 
+        reliable information, find trusted clinics, and connect with a supportive community.
+        <br><br>
+        We are dedicated to breaking the stigma surrounding sexual wellness and 
+        empowering you to make informed decisions about your body and your future.
+      </p>
+    </div>
+
+    <div class="contact-container">
+      
+      <div class="contact-card-item">
+        <div class="contact-icon">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="contact-info">
+          <h3>Send a Message</h3>
+          <span>support@healthhub.com</span>
+        </div>
+      </div>
+
+      <div class="contact-card-item">
+        <div class="contact-icon">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="contact-info">
+          <h3>Contact Us (24/7)</h3>
+          <span>09123456789</span>
+        </div>
+      </div>
+
+      <div class="contact-card-item">
+        <div class="contact-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="contact-info">
+          <h3>Location</h3>
+          <span>Manila City, Metro Manila, Philippines</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    </section>
+
+
+    <!-- Learn Section -->
+    <section id="info">
+      <div class="info-grid">
+        
+        <div class="card">
+          <h3><i class="fas fa-shield-heart"></i> Safe Sex Practices</h3>
+          <p>Protect yourself and your partner. Use protection consistently, discuss boundaries, and practice hygiene for a healthy experience.</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-virus"></i> STI Prevention & Testing</h3>
+          <p>Regular testing is vital. Know your status to stop the spread. Many STIs are symptomless but easily treatable if caught early.</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-pills"></i> Contraception Options</h3>
+          <p>Explore your choices—from pills and condoms to IUDs and implants. Consult with a professional to find the method that fits your lifestyle.</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-location-dot"></i> Finding Clinics</h3>
+          <p>Locate nearby sexual health clinics and healthcare providers. We help you find confidential, non-judgmental, and affordable services.</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-book-medical"></i> Sexual Health Education</h3>
+          <p>Empower yourself with accurate knowledge about anatomy, reproductive health, and wellness. correct information is the first step to health.</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-handshake"></i> Consent & Communication</h3>
+          <p>Healthy relationships are built on trust. Learn how to communicate your boundaries clearly and understand the importance of enthusiastic consent.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Self-Assessment Path Section -->
+    <section id="assessment">
+      
+      <div id="assessment-selector" class="assessment-selector">
+        <div class="hero-assessment">
+          <h2><i class="fas fa-heart-pulse"></i> Self-Assessment Path</h2>
+          <p>Choose a topic below to start your personalized health journey.</p>
+        </div>
+
+        <!-- Assessment Selector -->
+        <div class="scenario-grid">
+          <div class="scenario-card" onclick="startTree('contraception')">
+            <div class="icon-wrapper"><i class="fas fa-pills"></i></div>
+            <h3>Contraception Finder</h3>
+            <p>Find the birth control method that fits your lifestyle.</p>
+          </div>
+
+          <div class="scenario-card" onclick="startTree('sti')">
+            <div class="icon-wrapper"><i class="fas fa-shield-virus"></i></div>
+            <h3>STI Risk Check</h3>
+            <p>Assess your recent exposure and see if you need testing.</p>
+          </div>
+
+          <div class="scenario-card" onclick="startTree('consent')">
+            <div class="icon-wrapper"><i class="fas fa-hand-holding-heart"></i></div>
+            <h3>Consent Check-In</h3>
+            <p>Unsure about an interaction? Let's walk through it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="tree-container" class="tree-container" style="display: none;">
+        
+        <div class="progress-wrapper">
+          <div class="progress-bar" id="tree-progress"></div>
+        </div>
+
+        <div class="question-card">
+          <div class="ribbon-header">
+            <span id="tree-topic-badge">Topic</span>
+          </div>
+          
+          <h2 id="tree-question">Question goes here...</h2>
+          
+          <div class="tree-options">
+            <button class="btn-tree yes" onclick="handleTreeAnswer('yes')">
+              <i class="fas fa-check"></i> Yes
+            </button>
+            <button class="btn-tree no" onclick="handleTreeAnswer('no')">
+              <i class="fas fa-times"></i> No
+            </button>
+          </div>
+
+          <button class="btn-back" onclick="resetAssessment()">
+            <i class="fas fa-arrow-left"></i> Start Over
+          </button>
+        </div>
+      </div>
+
+      <div id="tree-result" class="tree-result" style="display: none;">
+        
+        <div class="result-icon-wrapper">
+          <i id="result-icon" class="fas fa-star"></i>
+        </div>
+        
+        <h2 id="result-title">Recommendation</h2>
+        
+        <div id="result-body" class="result-body">
+          </div>
+        
+        <div class="result-actions">
+          <button class="btn-primary" onclick="resetAssessment()">
+            <i class="fas fa-rotate-right"></i> Take Another Quiz
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Forum Section -->
+    <section id="forum">
+      <div class="forum">
+        <h2><i class="fas fa-comments"></i> Community Forum</h2>
+        <form class="forum-form" id="postForm">
+          <div class="form-row">
+            <input type="text" id="authorInput" placeholder="Your name (optional)" maxlength="60" />
+          </div>
+          <textarea id="messageInput" placeholder="Share your story, ask a question, or offer advice..." maxlength="2000"></textarea>
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary">Post</button>
+            <button type="button" class="btn btn-danger" id="clearAllBtn">Clear All Posts</button>
+          </div>
+        </form>
+
+        <!-- Top (Most Liked) Post Banner -->
+        <div id="topPost" class="top-post" aria-live="polite"></div>
+
+        <div class="posts" id="postsContainer">
+          <div class="empty-state">
+            <i class="fas fa-comments"></i>
+            <p>No posts yet — be the first to share!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Chat Panel -->
+  <section class="chat-panel hidden" id="chatPanel">
+    <div class="chat-header">
+      <div class="title">
+        <i class="fas fa-robot"></i>
+        HealthBot
+      </div>
+      <button id="minimizeChat" class="btn-small" style="background: none; border: none; color: white; cursor: pointer;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-body">
+      <div id="chatMessages"></div>
+      <div class="quick-replies" id="quickReplies"></div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Ask a question..." autocomplete="off" />
+      <button id="sendBtn" class="send-btn">Send</button>
+    </div>
+  </section>
+
+  <!-- Chat Bubble -->
+  <button id="chatBubble" class="chat-bubble">
+    <i class="fas fa-comment"></i>
+  </button>
+
+  <!-- Modal for Info Details -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="infoModal">
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <button id="closeModalBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+
+</div>  <footer>
+    <p>&copy; 2025 HealthHub. All rights reserved.</p>
+    <div class="social-icons">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+  </footer>
+  <section class="chat-panel hidden" id="chatPanel">
+
+  <script>
+    //  ============ DECISION TREE DATA STRUCTURE AND LOGIC ============ //
+    const treeState = {
+      currentScenario: null,
+      currentNode: null
+    };
+
+    // --- The Logic Data: 3 Scenarios --- //
+    const decisionData = {
+      
+      // --- SCENARIO 1: CONTRACEPTION --- //
+      'contraception': {
+        title: 'Contraception Finder',
+        nodes: {
+          'start': {
+            q: "Do you want to prevent pregnancy right now?",
+            yes: 'hormonal_check',
+            no: 'sti_check_path'
+          },
+          'hormonal_check': {
+            q: "Are you comfortable using hormones (like pill, patch, implant)?",
+            yes: 'daily_routine',
+            no: 'barrier_method'
+          },
+          'daily_routine': {
+            q: "Are you good at remembering to take something every single day?",
+            yes: 'res_pill',
+            no: 'long_term'
+          },
+          'long_term': {
+            q: "Do you want a method that lasts for years without maintenance?",
+            yes: 'res_implant_iud',
+            no: 'res_patch_ring'
+          },
+          'barrier_method': {
+            q: "Do you also want protection against STIs?",
+            yes: 'res_condoms',
+            no: 'res_copper_iud'
+          },
+          'sti_check_path': {
+             q: "Are you looking for protection solely against STIs?",
+             yes: 'res_condoms',
+             no: 'res_consult'
+          },
+          // --- Results (Leaf Nodes) --- //
+          'res_pill': { result: true, title: "The Pill", text: "Oral contraceptives might be great for you. They are 99% effective if taken daily." },
+          'res_implant_iud': { result: true, title: "Implant or Hormonal IUD", text: "These are 'set and forget' methods. The implant goes in your arm (3 years), the IUD in your uterus (3-7 years)." },
+          'res_patch_ring': { result: true, title: "Patch or Ring", text: "Try the Patch (change weekly) or the Ring (change monthly) if you don't want a daily pill." },
+          'res_condoms': { result: true, title: "External/Internal Condoms", text: "The only method that prevents both pregnancy and STIs. Keep using them!" },
+          'res_copper_iud': { result: true, title: "Copper IUD", text: "A hormone-free device that lasts up to 10 years. Highly effective." },
+          'res_consult': { result: true, title: "Consult a Specialist", text: "Your needs sound unique. It's best to visit a clinic to discuss fertility awareness or sterilization." }
+        }
+      },
+
+      // --- SCENARIO 2: STI RISK --- //
+      'sti': {
+        title: 'STI Risk Check',
+        nodes: {
+          'start': {
+            q: "Have you had unprotected sex recently?",
+            yes: 'symptoms_check',
+            no: 'routine_check'
+          },
+          'symptoms_check': {
+            q: "Do you have any symptoms? (Bumps, itchiness, discharge, pain)?",
+            yes: 'res_urgent',
+            no: 'partner_check'
+          },
+          'partner_check': {
+            q: "Did your partner mention they might have an STI?",
+            yes: 'res_urgent',
+            no: 'window_period'
+          },
+          'window_period': {
+            q: "Was the unprotected sex less than 2 weeks ago?",
+            yes: 'res_wait',
+            no: 'res_test_now'
+          },
+          'routine_check': {
+             q: "Has it been more than 6 months since your last test?",
+             yes: 'res_routine',
+             no: 'res_safe'
+          },
+          // --- Results --- //
+          'res_urgent': { result: true, title: "Visit a Clinic ASAP", text: "Since you have symptoms or known exposure, please do not wait. STIs are treatable!" },
+          'res_wait': { result: true, title: "Wait & Monitor", text: "Some tests cannot detect infections immediately. Use protection and test in 2 weeks, or visit a doctor for PEP if high risk." },
+          'res_test_now': { result: true, title: "Get Tested Now", text: "You are outside the window period, so a test now will be accurate. It's good to be sure!" },
+          'res_routine': { result: true, title: "Time for a Checkup", text: "We recommend testing every 6 months if you are sexually active, just to be safe." },
+          'res_safe': { result: true, title: "You're Good!", text: "Keep using protection. You seem to be up to date with your health screenings." }
+        }
+      },
+
+      // --- SCENARIO 3: CONSENT --- //
+      'consent': {
+        title: 'Consent Check-In',
+        nodes: {
+          'start': {
+            q: "Did the other person say 'YES' clearly and enthusiastically?",
+            yes: 'pressure_check',
+            no: 'silence_check'
+          },
+          'pressure_check': {
+            q: "Was there any pressure, guilt-tripping, or fear involved?",
+            yes: 'res_bad',
+            no: 'sobriety_check'
+          },
+          'silence_check': {
+            q: "Did they stay silent, freeze up, or seem unsure?",
+            yes: 'res_bad',
+            no: 'body_language'
+          },
+          'body_language': {
+            q: "Did they push you away or look uncomfortable?",
+            yes: 'res_bad',
+            no: 'res_communicate'
+          },
+          'sobriety_check': {
+             q: "Was anyone incapacitated by drugs or alcohol?",
+             yes: 'res_bad',
+             no: 'res_good'
+          },
+          // --- Results --- //
+          'res_good': { result: true, title: "Sounds Healthy!", icon: "fas fa-check-circle", text: "This sounds like a consensual, safe interaction. Communication is key!" },
+          'res_bad': { result: true, title: "Red Flag", icon: "fas fa-exclamation-triangle", text: "Consent must be free, enthusiastic, and sober. If this happened to you, it is not your fault. Reach out for support." },
+          'res_communicate': { result: true, title: "Unclear Territory", text: "Consent shouldn't be a guessing game. If you aren't sure, ASK. 'Are you okay with this?' is a sexy question." }
+        }
+      }
+    };
+
+    // ============ FUNCTIONS ============ //
+
+    function startTree(scenarioId) {
+      treeState.currentScenario = decisionData[scenarioId];
+      treeState.currentNode = 'start';
+    
+      document.getElementById('assessment-selector').style.display = 'none';
+      document.getElementById('tree-container').style.display = 'block';
+      document.getElementById('tree-result').style.display = 'none';
+      document.getElementById('tree-topic-badge').textContent = treeState.currentScenario.title;
+      
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const node = treeState.currentScenario.nodes[treeState.currentNode];
+      
+      // --- Update Progress Bar --- //
+      const progress = Math.random() * 30 + 30; 
+      document.getElementById('tree-progress').style.width = progress + '%';
+
+      // --- Animate Question --- //
+      const qEl = document.getElementById('tree-question');
+      qEl.style.opacity = 0;
+      setTimeout(() => {
+        qEl.textContent = node.q;
+        qEl.style.opacity = 1;
+      }, 200);
+    }
+
+    function handleTreeAnswer(answer) {
+      const node = treeState.currentScenario.nodes[treeState.currentNode];
+      const nextNodeId = node[answer];
+      
+      // --- Check if the next node is a result (leaf node) --- //
+      const nextNode = treeState.currentScenario.nodes[nextNodeId];
+
+      if (nextNode.result) {
+        showResult(nextNode);
+      } else {
+        treeState.currentNode = nextNodeId;
+        renderQuestion();
+      }
+    }
+
+    function showResult(resultNode) {
+      document.getElementById('tree-container').style.display = 'none';
+      const resDiv = document.getElementById('tree-result');
+      resDiv.style.display = 'block';
+      
+      document.getElementById('result-title').textContent = resultNode.title;
+      document.getElementById('result-body').innerHTML = `<p>${resultNode.text}</p>`;
+      document.getElementById('result-icon').className = resultNode.icon || 'fas fa-heart';
+      
+      // --- 100% Progress --- //
+      document.getElementById('tree-progress').style.width = '100%';
+    }
+
+    function resetAssessment() {
+      document.getElementById('assessment-selector').style.display = 'block';
+      document.getElementById('tree-container').style.display = 'none';
+      document.getElementById('tree-result').style.display = 'none';
+      document.getElementById('tree-progress').style.width = '0%';
+    }
+
+    // ============ MODAL / INFO DETAILS ============ //
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const infoModal = document.getElementById('infoModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalContent = document.getElementById('modalContent');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+
+  const infoDetails = {
+    'safe-sex': {
+      title: 'Safe Sex Practices',
+      icon: 'fas fa-shield-heart',
+      content: `
+        <p>Safe sex is about protecting yourself and your partner while enjoying intimacy. Here are 10 essential practices:</p>
+        <ul style="text-align: left; margin-top: 10px; line-height: 1.6;">
+          <li><strong>1. Use Condoms Correctly:</strong> Check the expiration date and air bubble. Use a new one for every act.</li>
+          <li><strong>2. Use Lubricant:</strong> Water-based lubes prevent condom breakage and increase comfort.</li>
+          <li><strong>3. Dental Dams:</strong> Use these latex sheets for oral protection.</li>
+          <li><strong>4. Wash Hands:</strong> Before and after intimacy to prevent bacterial transfer.</li>
+          <li><strong>5. Clean Sex Toys:</strong> Wash them thoroughly with soap and water before sharing or reusing.</li>
+          <li><strong>6. Regular Testing:</strong> Get tested at least once a year, or before every new partner.</li>
+          <li><strong>7. Honest Communication:</strong> Talk about sexual history and status before clothes come off.</li>
+          <li><strong>8. Avoid Intoxication:</strong> Alcohol and drugs can impair judgment regarding safety measures.</li>
+          <li><strong>9. Check for Sores:</strong> distinct bumps or sores are signs to stop and consult a doctor.</li>
+          <li><strong>10. PrEP/PEP:</strong> If you are high-risk for HIV, ask a doctor about Pre-Exposure or Post-Exposure Prophylaxis.</li>
+        </ul>
+      `
+    },
+    'contraception': {
+      title: 'Contraception Options',
+      icon: 'fas fa-pills',
+      content: `
+        <p>Finding the right birth control is a personal choice. Here are 10 common options to discuss with your doctor:</p>
+        <ul style="text-align: left; margin-top: 10px; line-height: 1.6;">
+          <li><strong>1. Male Condoms:</strong> 98% effective if used perfectly; also prevents STIs.</li>
+          <li><strong>2. Oral Contraceptive Pills:</strong> Taken daily to prevent ovulation.</li>
+          <li><strong>3. The Implant:</strong> A tiny rod inserted in the arm; lasts up to 3 years.</li>
+          <li><strong>4. IUD (Copper):</strong> Hormone-free device placed in the uterus; lasts up to 10 years.</li>
+          <li><strong>5. IUD (Hormonal):</strong> Lightens periods and prevents pregnancy for 3-5 years.</li>
+          <li><strong>6. Injectables:</strong> A shot given every 3 months (e.g., Depo-Provera).</li>
+          <li><strong>7. Emergency Contraception:</strong> "Plan B" or "Morning After" pill (take within 72 hours of unprotected sex).</li>
+          <li><strong>8. Vaginal Ring:</strong> A flexible ring inserted monthly.</li>
+          <li><strong>9. Patch:</strong> A sticky patch worn on the skin, changed weekly.</li>
+          <li><strong>10. Fertility Awareness:</strong> Tracking your cycle (requires high discipline and regularity).</li>
+        </ul>
+      `
+    },
+    'sti': {
+      title: 'STI Prevention & Testing',
+      icon: 'fas fa-virus',
+      content: `
+        <p>STIs are common and most are treatable. Knowledge is your best defense. Here are 10 key facts:</p>
+        <ul style="text-align: left; margin-top: 10px; line-height: 1.6;">
+          <li><strong>1. Many are Asymptomatic:</strong> You can have an STI without showing any signs. Testing is the only way to know.</li>
+          <li><strong>2. HPV Vaccine:</strong> Protects against warts and cervical cancer (available for all genders).</li>
+          <li><strong>3. Hepatitis B Vaccine:</strong> A crucial shot to prevent serious liver infection.</li>
+          <li><strong>4. Window Periods:</strong> Tests might not detect an infection immediately after exposure (ask your doctor).</li>
+          <li><strong>5. Treatable vs. Curable:</strong> Bacterial STIs (Chlamydia, Gonorrhea) are curable; Viral ones (HIV, Herpes) are manageable.</li>
+          <li><strong>6. Notify Partners:</strong> If you test positive, tell recent partners so they can get checked too.</li>
+          <li><strong>7. Barrier Methods Work:</strong> Condoms significantly reduce risk for HIV, Gonorrhea, and Chlamydia.</li>
+          <li><strong>8. Don't Share Sharps:</strong> Avoid sharing razors or needles.</li>
+          <li><strong>9. Oral Sex Risks:</strong> You can get STIs in the throat; use protection.</li>
+          <li><strong>10. Regular Screenings:</strong> Make it a part of your routine healthcare checkup.</li>
+        </ul>
+      `
+    },
+
+    'clinic': {
+      title: 'Finding Clinics',
+      icon: 'fas fa-location-dot',
+      content: `
+        <p>Here is a list of trusted, non-judgmental clinics and centers across the Philippines offering free or affordable HIV testing and sexual health services:</p>
+        
+        <div style="text-align: left; margin-top: 15px;">
+          
+          <h4 style="color: #764ba2; margin-bottom: 8px; border-bottom: 2px solid #eee; padding-bottom: 5px;">📍 LUZON</h4>
+          <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+            <li style="margin-bottom: 8px;"><strong>LoveYourself Anglo (Mandaluyong):</strong> <br><span style="font-size: 0.9em; color: #555;">Unit 5, 3/F, Anglo Bldg, #715-A Shaw Blvd.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Klinika Bernardo (Quezon City):</strong> <br><span style="font-size: 0.9em; color: #555;">Bernardo Park Compound, Kamuning Rd. (Open til 11PM)</span></li>
+            <li style="margin-bottom: 8px;"><strong>LoveYourself Uni (Pasay):</strong> <br><span style="font-size: 0.9em; color: #555;">2028 Taft Avenue, near Gil Puyat LRT.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Batangas Medical Center (Batangas City):</strong> <br><span style="font-size: 0.9em; color: #555;">Kumintang Ibaba, Batangas City.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Baguio General Hospital (Baguio):</strong> <br><span style="font-size: 0.9em; color: #555;">Gov. Pack Road, Baguio City.</span></li>
+          </ul>
+
+          <h4 style="color: #764ba2; margin-bottom: 8px; border-bottom: 2px solid #eee; padding-bottom: 5px;">📍 VISAYAS</h4>
+          <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+            <li style="margin-bottom: 8px;"><strong>LoveYourself White House (Cebu City):</strong> <br><span style="font-size: 0.9em; color: #555;">6 J. Llorente St, Capitol Site, Cebu City.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Vicente Sotto Memorial Medical Center (Cebu):</strong> <br><span style="font-size: 0.9em; color: #555;">B. Rodriguez St, Cebu City.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Western Visayas Medical Center (Iloilo):</strong> <br><span style="font-size: 0.9em; color: #555;">Q. Abeto St, Mandurriao, Iloilo City.</span></li>
+            <li style="margin-bottom: 8px;"><strong>FPOP Iloilo Chapter:</strong> <br><span style="font-size: 0.9em; color: #555;">Rizal Street, Iloilo City Proper.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Corazon Locsin Montelibano Hospital (Bacolod):</strong> <br><span style="font-size: 0.9em; color: #555;">Lacson St, Bacolod, Negros Occidental.</span></li>
+          </ul>
+
+          <h4 style="color: #764ba2; margin-bottom: 8px; border-bottom: 2px solid #eee; padding-bottom: 5px;">📍 MINDANAO</h4>
+          <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+            <li style="margin-bottom: 8px;"><strong>Southern Philippines Medical Center (Davao):</strong> <br><span style="font-size: 0.9em; color: #555;">J.P. Laurel Ave, Bajada, Davao City.</span></li>
+            <li style="margin-bottom: 8px;"><strong>FPOP Davao Chapter:</strong> <br><span style="font-size: 0.9em; color: #555;">Doors 4 & 5, Jaltan Bldg, C.M. Recto Ave, Davao.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Zamboanga City Medical Center (Zamboanga):</strong> <br><span style="font-size: 0.9em; color: #555;">Dr. D. Evangelista St, Sta. Catalina.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Northern Mindanao Medical Center (CDO):</strong> <br><span style="font-size: 0.9em; color: #555;">Capitol Compound, Cagayan de Oro City.</span></li>
+            <li style="margin-bottom: 8px;"><strong>Cotabato Regional and Medical Center:</strong> <br><span style="font-size: 0.9em; color: #555;">Sinsuat Avenue, Cotabato City.</span></li>
+          </ul>
+
+        </div>
+      `
+    },
+
+    'education': {
+      title: 'Sexual Health Education',
+      icon: 'fas fa-book-medical',
+      content: `
+        <p>Understanding your body is the first step to wellness. Here are 10 educational pillars:</p>
+        <ul style="text-align: left; margin-top: 10px; line-height: 1.6;">
+          <li><strong>1. Anatomy Knowledge:</strong> Know the correct names and functions of reproductive organs.</li>
+          <li><strong>2. Menstrual Health:</strong> Tracking cycles helps understand fertility and overall health.</li>
+          <li><strong>3. Myth Busting:</strong> You cannot get pregnant from toilet seats or hugging.</li>
+          <li><strong>4. Self-Exams:</strong> Check breasts/chest and testicles monthly for lumps.</li>
+          <li><strong>5. Hygiene Balance:</strong> The vagina is self-cleaning; avoid douching which causes infections.</li>
+          <li><strong>6. Puberty is Normal:</strong> Hair growth, voice changes, and discharge are natural.</li>
+          <li><strong>7. Sexual Orientation:</strong> Who you are attracted to is a natural part of who you are.</li>
+          <li><strong>8. Gender Identity:</strong> How you feel inside may or may not match your sex assigned at birth.</li>
+          <li><strong>9. Media Literacy:</strong> Pornography is not a realistic depiction of sex.</li>
+          <li><strong>10. Lifelong Learning:</strong> Sexual health needs change as you age; keep learning.</li>
+        </ul>
+      `
+    },
+    'consent': {
+      title: 'Consent & Communication',
+      icon: 'fas fa-handshake',
+      content: `
+        <p>Consent is mandatory. Communication makes sex better. Here are 10 rules of engagement:</p>
+        <ul style="text-align: left; margin-top: 10px; line-height: 1.6;">
+          <li><strong>1. Enthusiastic Yes:</strong> Consent shouldn't be "maybe"—it should be a clear YES.</li>
+          <li><strong>2. Freely Given:</strong> No pressure, guilt-tripping, or coercion allowed.</li>
+          <li><strong>3. Reversible:</strong> You can change your mind at ANY time, even during the act.</li>
+          <li><strong>4. Specific:</strong> Saying yes to one thing (kissing) doesn't mean yes to everything.</li>
+          <li><strong>5. Informed:</strong> Partners must know about STI status and birth control use.</li>
+          <li><strong>6. Sobriety:</strong> If someone is too drunk or high, they cannot legally consent.</li>
+          <li><strong>7. Non-Verbal Cues:</strong> If they aren't responding or look uncomfortable, STOP and ask.</li>
+          <li><strong>8. Check-Ins:</strong> Ask "Is this okay?" or "Do you like this?" frequently.</li>
+          <li><strong>9. Respect Boundaries:</strong> If they say no, accept it immediately and gracefully.</li>
+          <li><strong>10. The "Tea" Analogy:</strong> If you make tea and they don't want it, don't force them to drink it. Same goes for sex.</li>
+        </ul>
+      `
+    }
+  };
+
+    function openModal(key) {
+      const info = infoDetails[key];
+      if (!info) return;
+      
+      modalTitle.innerHTML = `<i class="${info.icon}"></i> ${info.title}`;
+      modalContent.innerHTML = info.content;
+      modalBackdrop.classList.add('show');
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('show');
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+
+    // --- Wire Infor Cards to Open Modal --- //
+    document.querySelectorAll('#info .card').forEach((card, idx) => {
+      const keys = ['safe-sex', 'sti', 'contraception', 'clinic', 'education', 'consent'];
+      
+      if (keys[idx]) {
+        card.addEventListener('click', () => openModal(keys[idx]));
+      }
+    });
+
+    // --- Section Navigation --- //
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      const section = document.getElementById(sectionId);
+      if (section) section.classList.add('active');
+    }
+
+    // ============ FORUM ============ //
+    const postsKey = 'forum_posts_v1';
+    const postForm = document.getElementById('postForm');
+    const authorInput = document.getElementById('authorInput');
+    const messageInput = document.getElementById('messageInput');
+    const postsContainer = document.getElementById('postsContainer');
+    const clearAllBtn = document.getElementById('clearAllBtn');
+    let posts = [];
+
+    function loadPosts() {
+      try {
+        posts = JSON.parse(localStorage.getItem(postsKey) || '[]');
+      } catch (e) {
+        posts = [];
+      }
+    }
+
+    function savePosts() {
+      localStorage.setItem(postsKey, JSON.stringify(posts));
+    }
+
+    function timeAgo(iso) {
+      const delta = Math.floor((Date.now() - new Date(iso)) / 1000);
+      if (delta < 60) return `${delta}s`;
+      if (delta < 3600) return `${Math.floor(delta / 60)}m`;
+      if (delta < 86400) return `${Math.floor(delta / 3600)}h`;
+      return `${Math.floor(delta / 86400)}d`;
+    }
+
+    function escapeHtml(s) {
+      if (!s) return '';
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function renderPosts() {
+      if (!posts || posts.length === 0) {
+        postsContainer.innerHTML = `<div class="empty-state"><i class="fas fa-comments"></i><p>No posts yet — be the first to share!</p></div>`;
+        return;
+      }
+
+      postsContainer.innerHTML = '';
+      // --- Sort posts by likes (most liked first), tie-breaker: newest first --- //
+      const sorted = posts.slice().sort((a, b) => {
+        const la = a.likes || 0;
+        const lb = b.likes || 0;
+        if (lb !== la) return lb - la;
+        return new Date(b.time) - new Date(a.time);
+      });
+
+      // --- Display the top (most liked) post in the banner --- //
+      const top = sorted[0];
+      const topEl = document.getElementById('topPost');
+      if (top) {
+        topEl.style.display = 'block';
+        topEl.innerHTML = `
+          <div class="title">Most Liked Post</div>
+          <div class="top-card">
+            <div class="tp-content"><strong>${escapeHtml(top.author || 'Anonymous')}</strong>: ${escapeHtml(top.content)}</div>
+            <div class="tp-meta">👍 ${top.likes || 0}<br/><small>${timeAgo(top.time)}</small></div>
+          </div>
+        `;
+      } else {
+        topEl.style.display = 'none';
+        topEl.innerHTML = '';
+      }
+
+      sorted.forEach(post => {
+        const el = document.createElement('div');
+        el.className = 'post';
+        el.innerHTML = `
+          <div class="post-header">
+            <div>
+              <div class="post-author">${escapeHtml(post.author || 'Anonymous')}</div>
+              <div class="post-time">${timeAgo(post.time)}</div>
+            </div>
+          </div>
+          <div class="post-content">${escapeHtml(post.content)}</div>
+          <div class="post-actions">
+            <button class="post-action-btn" data-action="like" data-id="${post.id}"><i class="fas fa-thumbs-up"></i> ${post.likes || 0}</button>
+            <button class="post-action-btn" data-action="delete" data-id="${post.id}"><i class="fas fa-trash"></i></button>
+          </div>
+        `;
+        postsContainer.appendChild(el);
+      });
+    }
+
+    postsContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-action]');
+      if (!btn) return;
+      const action = btn.getAttribute('data-action');
+      const id = btn.getAttribute('data-id');
+      if (action === 'like') {
+        const p = posts.find(x => x.id === id);
+        if (p) {
+          p.likes = (p.likes || 0) + 1;
+          savePosts();
+          renderPosts();
+        }
+      } else if (action === 'delete') {
+        if (!confirm('Delete this post?')) return;
+        posts = posts.filter(x => x.id !== id);
+        savePosts();
+        renderPosts();
+      }
+    });
+
+    postForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const author = authorInput.value;
+      const content = messageInput.value;
+      if (!content || !content.trim()) {
+        alert('Please enter a message before posting.');
+        return;
+      }
+      const post = {
+        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+        author: author ? author.trim() : 'Anonymous',
+        content: content.trim(),
+        likes: 0,
+        time: new Date().toISOString()
+      };
+      posts.push(post);
+      savePosts();
+      renderPosts();
+      postForm.reset();
+    });
+
+    clearAllBtn.addEventListener('click', () => {
+      if (!posts || posts.length === 0) return;
+      if (!confirm('Clear all posts? This cannot be undone.')) return;
+      posts = [];
+      savePosts();
+      renderPosts();
+    });
+
+    loadPosts();
+
+    // --- Seed 45 sample posts (only once) and persist. Uses a flag in localStorage to avoid duplicating. --- //
+    if (!localStorage.getItem('forum_seeded_v2')) {
+      const seed = [];
+      const snippets = [
+        'Condoms are important — always use one when unsure.',
+        'Just got tested and the clinic was friendly and confidential.',
+        'Any tips for discussing contraception with a new partner?',
+        'IUD experience: minimal pain, now I don\'t worry about pills.',
+        'Remember emergency contraception works best the sooner you take it.',
+        'Testing helped me feel more confident in my relationship.',
+        'Where do you find low-cost STI testing near you?',
+        'Has anyone tried the implant? How was recovery?',
+        'Talking about consent is crucial — be direct and kind.',
+        'Plan B was accessible at my local pharmacy, no questions asked.'
+      ];
+
+      for (let i = 0; i < 45; i++) {
+        const id = 'sample-' + Date.now().toString(36) + '-' + i;
+        const author = `User${100 + i}`;
+        const content = snippets[i % snippets.length] + (i % 3 === 0 ? ' Sharing my experience.' : ' Asking for advice.');
+        const likes = Math.floor(Math.random() * 120); // 0-119 likes
+        const time = new Date(Date.now() - (i * 60 * 60 * 1000)).toISOString();
+        seed.push({ id, author, content, likes, time });
+      }
+
+      posts = posts.concat(seed);
+      savePosts();
+      localStorage.setItem('forum_seeded_v2', '1');
+    }
+
+    renderPosts();
+    const chatPanel = document.getElementById('chatPanel');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const minimizeChat = document.getElementById('minimizeChat');
+    const quickReplies = document.getElementById('quickReplies');
+    const chatBubble = document.getElementById('chatBubble');
+
+    const chatKey = 'chat_history_v1';
+    let chatHistory = [];
+
+    const canned = [
+      { pattern: /\bhello\b|\bhi\b|\bhey\b/, reply: "Hello! I'm HealthBot. I can answer questions about safe sex, contraception, clinics, and more." },
+      { pattern: /\bhelp\b/, reply: 'Try: "safe sex", "contraception", "clinic", "STI", "emergency", or "self assessment".' },
+      { pattern: /\bsafe sex\b|\bcondom(s)?\b/, reply: 'Safe sex means using protection (condoms), getting tested regularly, communicating with partners, and using contraception consistently.' },
+      { pattern: /contraception|birth control|pill|iud|implant/, reply: "Options include pills, IUDs, implants, condoms, and more. Talk to a clinician to find what's right for you." },
+      { pattern: /clinic|near me|where to (find|get)/, reply: "Search online for sexual health clinics near you. Many offer confidential and affordable services. If it's urgent, go to the ER." },
+      { pattern: /sti|testing|test(ed)?/, reply: "STI testing is important if you're sexually active. Many STIs are treatable. Get tested annually or after unprotected contact." },
+      { pattern: /emergency|urgent|help now/, reply: "If it's an emergency, call your local emergency number or go to the nearest hospital immediately." },
+      { pattern: /self assessment|assessment|checklist/, reply: "Check out the Self-Assessment section in the navigation to use our checklists." },
+      { pattern: /mental|therapy|counsel/, reply: "Sexual health includes mental well-being. Don't hesitate to seek therapy or counseling if needed." }
+    ];
+
+    const defaultReply = "I'm not sure about that. Try asking about safe sex, contraception, clinics, STI testing, or use a quick reply.";
+
+    function saveChat() {
+      try { localStorage.setItem(chatKey, JSON.stringify(chatHistory)); } catch (e) {}
+    }
+
+    function loadChat() {
+      try { chatHistory = JSON.parse(localStorage.getItem(chatKey) || '[]'); } catch (e) { chatHistory = []; }
+    }
+
+    function renderHistory() {
+      chatMessages.innerHTML = '';
+      chatHistory.forEach(m => {
+        const el = document.createElement('div');
+        el.className = `message ${m.who}`;
+        el.textContent = m.text;
+        chatMessages.appendChild(el);
+      });
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addMessage(text, who = 'bot', save = true) {
+      const el = document.createElement('div');
+      el.className = `message ${who}`;
+      el.textContent = text;
+      chatMessages.appendChild(el);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      if (save) {
+        chatHistory.push({ who, text, time: new Date().toISOString() });
+        saveChat();
+      }
+    }
+
+    function showTyping(on = true) {
+      let typingEl = chatMessages.querySelector('.typing');
+      if (on) {
+        if (!typingEl) {
+          typingEl = document.createElement('div');
+          typingEl.className = 'message bot typing';
+          typingEl.textContent = 'HealthBot is typing...';
+          chatMessages.appendChild(typingEl);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      } else {
+        if (typingEl) typingEl.remove();
+      }
+    }
+
+    function respondTo(text) {
+      const t = text.toLowerCase();
+      for (const item of canned) {
+        if (item.pattern.test(t)) return item.reply;
+      }
+      return defaultReply;
+    }
+
+    function openChat() {
+      chatPanel.classList.remove('hidden');
+      loadChat();
+      renderHistory();
+      if (chatHistory.length === 0) {
+        addMessage("Hi! I'm HealthBot. I can answer questions about sexual health, contraception, clinics, and more. What can I help with?", 'bot');
+      }
+      renderQuickReplies();
+      chatInput.focus();
+    }
+
+    function closeChat() {
+      chatPanel.classList.add('hidden');
+    }
+
+    function handleSend() {
+      const txt = chatInput.value && chatInput.value.trim();
+      if (!txt) return;
+      addMessage(txt, 'user');
+      chatInput.value = '';
+      showTyping(true);
+
+      // --- Simulate Thinking Time --- //
+      setTimeout(() => {
+        const reply = respondTo(txt);
+        showTyping(false);
+        addMessage(reply, 'bot');
+      }, 600 + Math.random() * 600);
+    }
+
+    function renderQuickReplies() {
+      const quickList = [
+        { label: '👋 Hello', value: 'hello' },
+        { label: '🛡️ Safe Sex', value: 'safe sex' },
+        { label: '💊 Contraception', value: 'contraception' },
+        { label: '🏥 Find Clinics', value: 'clinic' },
+        { label: '🦠 STI Info', value: 'sti' }
+      ];
+
+      quickReplies.innerHTML = '';
+      quickList.forEach(q => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = q.label;
+        b.addEventListener('click', () => {
+          addMessage(q.label, 'user');
+          showTyping(true);
+          setTimeout(() => { showTyping(false); addMessage(respondTo(q.value), 'bot'); }, 300 + Math.random() * 400);
+        });
+        quickReplies.appendChild(b);
+      });
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSend();
+      }
+    });
+
+    minimizeChat.addEventListener('click', closeChat);
+
+    chatBubble.addEventListener('click', () => {
+      if (chatPanel.classList.contains('hidden')) openChat();
+      else closeChat();
+    });
+  </script>
+</body>
+</html>
